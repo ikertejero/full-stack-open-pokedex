@@ -46,6 +46,7 @@ module.exports = {
       "error", { "before": true, "after": true }
     ],
     "no-console": "off",
+    "react/no-deprecated": "off",
     "react/prop-types": 0
   }
 }
