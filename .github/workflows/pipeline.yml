@@ -35,12 +35,13 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5000
 
-  # deploy:
-  #   needs: build_and_test
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: superfly/flyctl-actions/setup-flyctl@master
-  #     - run: flyctl deploy --remote-only
-  #       env:
-  #         FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  deploy:
+    needs: build_and_test
+    runs-on: ubuntu-20.04
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
