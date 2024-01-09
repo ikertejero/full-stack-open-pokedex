@@ -30,3 +30,7 @@ jobs:
         env:
           COMMIT_AUTHOR_NAMES: ${{ toJson(github.event.commits.*.author.name) }}
         run: echo "$COMMIT_AUTHOR_NAMES"
+      - name: commit author emails
+        env:
+          COMMIT_AUTHOR_EMAILS: ${{ toJson(github.event.commits.*.author.email) }}
+        run: echo "$COMMIT_AUTHOR_EMAILS"
