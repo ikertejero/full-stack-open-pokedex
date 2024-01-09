@@ -26,3 +26,7 @@ jobs:
         env:
           COMMIT_AUTHORS: ${{ toJson(github.event.commits.*.author) }}
         run: echo "$COMMIT_AUTHORS"
+      - name: commit author names
+        env:
+          COMMIT_AUTHOR_NAMES: ${{ toJson(github.event.commits.*.author.name) }}
+        run: echo "$COMMIT_AUTHOR_NAMES"
