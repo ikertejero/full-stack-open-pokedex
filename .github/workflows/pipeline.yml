@@ -40,7 +40,8 @@ jobs:
         if: failure()
         with:
           severity: error
-          details: "Build failed"
+          text: "Build failed"
+          description: "commit ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }} by ${{ github.actor }} broke the build :("
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
   deploy:
@@ -63,7 +64,8 @@ jobs:
         if: success()
         with:
           severity: info
-          details: "A new version of Pokedex deployed"
+          text: "A new version of Pokedex deployed"
+          description: "to https://fs-open-pokedex-iker.fly.dev/ by ${{ github.actor }}"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
   bump_version:
