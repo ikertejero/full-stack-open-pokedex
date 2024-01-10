@@ -11,6 +11,7 @@ on:
 env:
   NODE_VERSION: "16"
   DEFAULT_BUMP: "patch"
+  DEPLOYMENT_URL: "https://fs-open-pokedex-iker.fly.dev/"
 
 jobs:
   build_and_test:
@@ -65,7 +66,7 @@ jobs:
         with:
           severity: info
           text: "A new version of Pokedex deployed"
-          description: "to https://fs-open-pokedex-iker.fly.dev/ by ${{ github.actor }}"
+          description: "to ${{ env.DEPLOYMENT_URL }} by ${{ github.actor }}"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
   bump_version:
