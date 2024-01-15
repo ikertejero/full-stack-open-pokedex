@@ -24,6 +24,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install dependencies
         run: npm install
+      - name: List dependencies
+        run: npm list
       - name: Lint
         run: npm run eslint
       - name: Build
